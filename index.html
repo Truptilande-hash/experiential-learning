@@ -1,186 +1,254 @@
 <html>
 <head>
-    <title>Apna School Alumni Portal</title>
+<title>Apna School Alumni Portal</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial;
+    background: #f4f4f4;
+}
+
+
+.header {
+    background: darkblue;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    animation: fade 1s ease-in;
+}
+
+@keyframes fade {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+
+.navbar {
+    background: lightgray;
+    text-align: center;
+    padding: 10px;
+}
+
+.navbar a {
+    margin: 5px;
+    padding: 8px 12px;
+    border: 1px solid blue;
+    color: blue;
+    border-radius: 6px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.navbar a:hover {
+    background: blue;
+    color: white;
+}
+
+
+.section {
+    display: none;
+    padding: 20px;
+    margin: 10px;
+    background: white;
+    border-radius: 10px;
+    animation: slide 0.5s ease-in;
+}
+
+#login {
+    display: block;
+}
+
+@keyframes slide {
+    from {transform: translateY(20px); opacity: 0;}
+    to {transform: translateY(0); opacity: 1;}
+}
+
+
+.gallery img {
+    width: 30%;
+    margin: 5px;
+    border-radius: 8px;
+}
+
+
+@media(max-width:600px){
+    .gallery img { width:100%; }
+    .navbar a { display:block; }
+}
+</style>
+
+<script>
+function showSection(id){
+    let sec = document.getElementsByClassName("section");
+    for(let i=0;i<sec.length;i++){
+        sec[i].style.display="none";
+    }
+    document.getElementById(id).style.display="block";
+}
+
+function loginUser(){
+    showSection('home');
+}
+</script>
+
 </head>
-<body bgcolor="white">
 
-<center>
-    <h1><font color="darkblue">🎓 Apna School Alumni Portal 🎓</font></h1>
-    <p><i>Reconnect • Celebrate • Contribute</i></p>
-</center>
-<hr>
+<body>
 
-<center>
-    <h3>
-        <a href="#home">Home</a> |
-        <a href="#register">Register</a> |
-        <a href="#events">Events</a> |
-        <a href="#gallery">Gallery</a> |
-        <a href="#donate">Donate</a>
-    </h3>
-</center>
-<hr>
 
-<table width="100%" bgcolor="yellow" cellpadding="10">
-<tr>
-<td>
-<h2 id="home"><font color="darkgreen">Welcome to Apna School!</font></h2>
+<div class="header">
+    <h1><i class="fa-solid fa-school"></i> Apna School Alumni Portal</h1>
+</div>
+
+
+<div id="login" class="section container">
+    <h2><i class="fa-solid fa-right-to-bracket"></i> Login</h2>
+
+    <input class="form-control mb-2" placeholder="Username">
+    <input class="form-control mb-2" type="password" placeholder="Password">
+
+    <button class="btn btn-primary" onclick="loginUser()">
+        <i class="fa-solid fa-lock"></i> Login
+    </button>
+</div>
+
+
+<div class="navbar">
+
+<a onclick="showSection('home')"><i class="fa-solid fa-house"></i> Home</a>
+<a onclick="showSection('register')"><i class="fa-solid fa-user-plus"></i> Register</a>
+<a onclick="showSection('events')"><i class="fa-solid fa-calendar"></i> Events</a>
+<a onclick="showSection('gallery')"><i class="fa-solid fa-image"></i> Gallery</a>
+<a onclick="showSection('donate')"><i class="fa-solid fa-hand-holding-heart"></i> Donate</a>
+<a onclick="showSection('about')"><i class="fa-solid fa-circle-info"></i> About</a>
+<a onclick="showSection('college')"><i class="fa-solid fa-graduation-cap"></i> College Links</a>
+
+</div>
+
+
+<div id="home" class="section bg-warning">
+<h2>Welcome </h2>
+
 <p>
-यह portal हमारे <b>Apna School</b> के alumni के लिए बनाया गया है।
-यहाँ आप अपने दोस्तों से जुड़ सकते हैं, memories share कर सकते हैं
-और school को support कर सकते हैं।
+यह portal Apna School ke alumni ke liye banaya gaya hai।
 </p>
-<marquee>Welcome Alumni | Stay Connected | Support Your School</marquee>
-</td>
-</tr>
-</table>
-<hr>
+
+<marquee>Welcome Alumni | Stay Connected | Build Memories | Support School</marquee>
+</div>
 
 
-<table width="100%" bgcolor="lightblue" cellpadding="10">
-<tr>
+<div id="register" class="section bg-light">
+<h2>Registration</h2>
+
+<input class="form-control mb-2" placeholder="Name">
+<input class="form-control mb-2" placeholder="Email">
+<input class="form-control mb-2" placeholder="Mobile">
+<input class="form-control mb-2" type="date">
+Gender:
+<input type="radio" name="g"> Male
+<input type="radio" name="g"> Female
+<br><br>
+
+Year of Passing: <input type="number"><br><br>
+
+State:
+<select>
+<option>Select</option>
+<option>Maharashtra</option>
+<option>Delhi</option>
+</select><br><br>
+
+City:
+<select>
+<option>Select</option>
+<option>Mumbai</option>
+<option>Pune</option>
+</select><br><br>
+
+<button>Register</button>
 
 
-    <td width="65%" valign="top">
-        <h3>Registration Details</h3>
-        <table border="1" cellpadding="5" width="100%">
-            <tr><td>Name:</td><td><input type="text"></td></tr>
-            <tr><td>Email:</td><td><input type="email"></td></tr>
-            <tr><td>Year of Passing:</td><td><input type="number"></td></tr>
+Photo Upload:
+<input type="file" class="form-control mb-2">
 
-            <tr>
-                <td>Gender:</td>
-                <td>
-                    <input type="radio" name="g"> Male
-                    <input type="radio" name="g"> Female
-                </td>
-            </tr>
+<button class="btn btn-success">Register</button>
+</div>
 
-            <tr><td>Mobile:</td><td><input type="number"></td></tr>
-            <tr><td>DOB:</td><td><input type="date"></td></tr>
+<div id="events" class="section bg-success text-white">
+<h2>Events</h2>
 
-            <tr>
-                <td>State:</td>
-                <td>
-                    <select>
-                        <option>Select</option>
-                        <option>Maharashtra</option>
-                        <option>Delhi</option>
-                    </select>
-                </td>
-            </tr>
-
-            <tr>
-                <td>City:</td>
-                <td>
-                    <select>
-                        <option>Select</option>
-                        <option>Mumbai</option>
-                        <option>Pune</option>
-                        <option>Delhi</option>
-                    </select>
-                </td>
-            </tr>
-        </table>
-    </td>
-
-  
-    <td width="35%" align="center" valign="top">
-        <img src="C:\Users\TRUPTI\Desktop\e7.jpg" width="500" height="200"><br>
-        <p><i>School Memories</i></p>
-    </td>
-
-</tr>
-
-<tr>
-<td colspan="2" align="center">
-<form>
-    <input type="submit" value="Register">
-</form>
-</td>
-</tr>
-</table>
-<hr>
-
-<table width="100%" bgcolor="lightgreen" cellpadding="10">
-<tr>
-<td>
-<h2 id="events"><font color="white">Upcoming Events</font></h2>
 <ul>
-    <li>Annual Alumni Meet</li>
-    <li>Sports Day</li>
-    <li>Teacher's Day</li>
+<li>Annual Alumni Meet</li>
+<li>Sports Day</li>
+<li>Teacher's Day</li>
 </ul>
-</td>
-</tr>
-</table>
-<hr>
+</div>
 
-<table width="100%" bgcolor="white" cellpadding="10">
-<tr>
-<td>
-<h2 id="gallery">Photo Gallery</h2>
-<table border="2" cellpadding="10">
-<tr>
-    <td><img src="C:\Users\TRUPTI\Desktop\e6.jpg" width="400" height="400"></td>
-    <td><img src="C:\Users\TRUPTI\Desktop\e5.jpg" width="400" height="400"></td>
-    <td><img src="C:\Users\TRUPTI\Desktop\e3.jpg" width="400" height="400"></td>
-</tr>
-<tr>
-    <td><img src="C:\Users\TRUPTI\Desktop\e2.jpg" width="400" height="400"></td>
-    <td><img src="C:\Users\TRUPTI\Desktop\e4.jpg" width="400" height="400"></td>
-    <td><img src="C:\Users\TRUPTI\Desktop\a.jpg" width="400" height="400"></td>
-</tr>
-</table>
-</td>
-</tr>
-</table>
-<hr>
 
-<table width="100%" bgcolor="lightgreen" cellpadding="10">
-<tr>
-<td>
-<h2 id="donate">Support Apna School</h2>
-<button>₹100</button>
-<button>₹500</button>
-<button>₹1000</button>
-<p><b>Scan & Pay:</b></p>
-<img src="C:\Users\TRUPTI\Desktop\s.png" width="400" height="400"><br>
+<div id="gallery" class="section">
+<h2>Gallery</h2>
+
+<img src="e1.jpg">
+<img src="e2.jpg">
+<img src="e3.jpg">
+<img src="e4.jpg">
+<img src="e5.jpg">
+<img src="e6.jpg">
+
+<br><br>
+<b>Add Photo:</b>
+<input type="file" class="form-control">
+</div>
+
+
+<div id="donate" class="section bg-light">
+<h2>Donate</h2>
+
+<button class="btn btn-primary">₹100</button>
+<button class="btn btn-primary">₹500</button>
+<button class="btn btn-primary">₹1000</button>
+
+<br><br>
+
+<b>Scan & Pay:</b><br>
+<img src="scanner.jpg" width="200">
+
 <p>Thank you for your support!</p>
-</td>
-</tr>
-</table>
-<hr>
+</div>
 
-<table width="100%" bgcolor="lightyellow" cellpadding="10">
-<tr>
-<td>
-<h2>Latest News</h2>
-<marquee>Topper Announced | New Lab Opened | Alumni Meet Success</marquee>
-<ul>
-    <li>Topper of 2026 announced</li>
-    <li>New Computer Lab inaugurated</li>
-    <li>Alumni Meetup Success</li>
-</ul>
-</td>
-</tr>
-</table>
-<hr>
 
-<table width="100%" bgcolor="white" cellpadding="10">
-<tr>
-<td align="center">
-<p><b><font color="darkblue">Apna School Alumni Association</font></b></p>
+<div id="about" class="section bg-info text-dark">
+<h2>About Us</h2>
+
 <p>
-Apna School, India <br>
-<a href="mailto:apnaschool@gmail.com">apnaschool@gmail.com</a><br>
-<a href="Practical-3.html">Visit School Website</a>
+यह portal students ko connect karne ke liye banaya gaya hai।
 </p>
-<p><font color="red">Made with love by Apna School Student (heart to heart connection)</font></p>
-<p>jaruri hai aana apna school #### 2026 Apna School</p>
-</td>
-</tr>
-</table>
+
+<p>
+ Purpose: memories share karna aur school ko support karna।
+</p>
+
+<p>
+📞 Contact: apnaschool@gmail.com
+</p>
+</div>
+
+<div id="college" class="section bg-light">
+<h2>College Links</h2>
+
+<ul>
+<li><a href="https://www.google.com" target="_blank">Google</a></li>
+<li><a href="https://www.wikipedia.org" target="_blank">Wikipedia</a></li>
+<li><a href="https://www.youtube.com" target="_blank">YouTube</a></li>
+<li><a href="https://www.github.com" target="_blank">GitHub</a></li>
+</ul>
+
+</div>
 
 </body>
-</html>
+    </html>
