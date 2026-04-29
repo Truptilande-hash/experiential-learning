@@ -1,0 +1,68 @@
+body {
+    margin: 0;
+    font-family: Arial;
+    background: #f4f4f4;
+}
+
+.header {
+    background: darkblue;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    animation: fade 1s ease-in;
+}
+
+@keyframes fade {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+.navbar {
+    background: lightgray;
+    text-align: center;
+    padding: 10px;
+}
+
+.navbar a {
+    margin: 5px;
+    padding: 8px 12px;
+    border: 1px solid blue;
+    color: blue;
+    border-radius: 6px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.navbar a:hover {
+    background: blue;
+    color: white;
+}
+
+.section {
+    display: none;
+    padding: 20px;
+    margin: 10px;
+    background: white;
+    border-radius: 10px;
+    animation: slide 0.5s ease-in;
+}
+
+#login {
+    display: block;
+}
+
+@keyframes slide {
+    from {transform: translateY(20px); opacity: 0;}
+    to {transform: translateY(0); opacity: 1;}
+}
+
+.gallery img {
+    width: 30%;
+    margin: 5px;
+    border-radius: 8px;
+}
+
+@media(max-width:600px){
+    .gallery img { width:100%; }
+    .navbar a { display:block; }
+}
