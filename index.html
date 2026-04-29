@@ -6,20 +6,6 @@
 
 <link rel="stylesheet" href="style.css">
 
-<script>
-function showSection(id){
-    let sec = document.getElementsByClassName("section");
-    for(let i=0;i<sec.length;i++){
-        sec[i].style.display="none";
-    }
-    document.getElementById(id).style.display="block";
-}
-
-function loginUser(){
-    showSection('home');
-}
-</script>
-
 </head>
 
 <body>
@@ -44,13 +30,13 @@ function loginUser(){
 
 <div class="navbar">
 
-<a onclick="showSection('home')"><i class="fa-solid fa-house"></i> Home</a>
-<a onclick="showSection('register')"><i class="fa-solid fa-user-plus"></i> Register</a>
-<a onclick="showSection('events')"><i class="fa-solid fa-calendar"></i> Events</a>
-<a onclick="showSection('gallery')"><i class="fa-solid fa-image"></i> Gallery</a>
-<a onclick="showSection('donate')"><i class="fa-solid fa-hand-holding-heart"></i> Donate</a>
-<a onclick="showSection('about')"><i class="fa-solid fa-circle-info"></i> About</a>
-<a onclick="showSection('college')"><i class="fa-solid fa-graduation-cap"></i> College Links</a>
+<a href="#home">Home</a>
+<a href="#register">Register</a>
+<a href="#events">Events</a>
+<a href="#gallery">Gallery</a>
+<a href="#donate">Donate</a>
+<a href="#about">About</a>
+<a href="#college">College Links</a>
 
 </div>
 
