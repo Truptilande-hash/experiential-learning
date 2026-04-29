@@ -50,6 +50,9 @@ body {
 #login {
     display: block;
 }
+.section:target {
+    display: block;
+}
 
 @keyframes slide {
     from {transform: translateY(20px); opacity: 0;}
